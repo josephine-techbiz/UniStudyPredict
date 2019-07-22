@@ -11,4 +11,16 @@ Predicting University Study in UPH using  Support Vector Machine, Regression Tre
    
    Pada penelitian mengenai profiling calon mahasiswa yang dirancang untuk penentuan program studi diharapkan dapat diterapkan pada calon mahasiswa. Profiling ini akan dilakukan pada calon mahasiswa Universitas Pelita Harapan (UPH). 
 
+# Batasan Masalah
+Dalam proyek ini, diperlukan beberapa batasan yang digunakan sebagai acuan dalam proyek untuk memberikan arah yang  jelas dalam pengembangannya.   Batasan-batasan   yang   terdapat   dalam   proyek ini   adalah sebagai berikut: 
+1)	Aplikasi dikembangkan dengan menggunakan bahasa pemrograman Python dan menggunakan Jupyter Notebook sebagai Integrated Development Environment (IDE).
+2)	Visualisasi aplikasi menggunakan Python Dash.
+3)	Metode yang digunakan adalah Ensemble Learning.
+4)	Algoritma-algoritma yang digunakan dalam penelitian ini adalah Support Vector Machine (SVM), Regression Tree, dan Random Forest.
+5)	Data yang diambil berasal dari Kementerian Riset, Teknologi, Dan Pendidikan Tinggi Republik Indonesia (Ristekdikti).
+6)	Data siswa yang diambil berasal dari data mahasiswa yang telah berkuliah di Universitas Pelita Harapan (UPH). 
+7)	Data yang diperoleh terdiri dari Nomor Induk Mahasiswa (NIM), kode sekolah, nama sekolah, kode jurusan/program studi, nama jurusan, Nilai Ebtanas Murni (NEM) SMA, Satuan Kredit Semester (SKS), dan Indeks Prestasi Kumulatif (IPK) dari mahasiswa. 
+8)	Data yang digunakan untuk perancangan aplikasi ini diambil dari mahasiswa yang memiliki rentang NEM 30.00 hingga 60.00 dan data mahasiswa yang tidak memiliki nilai Not Available (NA), nol (0), maupun nilai-nilai lain yang tidak sesuai dengan tipe datanya. 
+9)	Aplikasi yang dikembangkan akan menunjukkan perbandingan insight dari algoritma-algoritma yang digunakan dan akan menampilkan hasil visualisasi.
+10)	Hasil yang ditampilkan berupa Website dari Python Dash 
 
