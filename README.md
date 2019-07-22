@@ -24,3 +24,17 @@ Dalam proyek ini, diperlukan beberapa batasan yang digunakan sebagai acuan dalam
 9)	Aplikasi yang dikembangkan akan menunjukkan perbandingan insight dari algoritma-algoritma yang digunakan dan akan menampilkan hasil visualisasi.
 10)	Hasil yang ditampilkan berupa Website dari Python Dash 
 
+# Data Cleansing
+Data cleansing atau data cleaning sering digunakan untuk berbagai kasus tentang peningkatan kualitas data. 
+
+# Ensemble Learning
+Salah satu tugas dari machine learning,  pattern recognition dan data mining adalah untuk membangun model yang baik dari dataset. Proses menghasilkan model dari data dinamakan learning atau training, yang diselesaikan oleh learning algorithm. Model tersebut dapat disebut dengan sebuah hipotesis atau learner atau classifier. Ensemble learning adalah metode untuk memecahkan masalah yang sama dengan membangun dan mengkombinasikan suatu kumpulan classifier. Sebuah ensemble mengandung sejumlah learner yang dinamakan base learners, dihasilkan dari base learning algorithm seperti decision tree, neural network, naïve bayes classifier, dan lainnya. 
+
+1. Support Vector Machine (SVM)
+Konsep Klasifikasi dengan Support Vector Machine (SVM) adalah mencari hyperplane terbaik yang berfungsi sebagai pemisah dua kelas data. Ide sederhana dari SVM adalah memaksimalkan margin, yang merupakan jarak pemisah antara kelas data
+
+2. Regression Tree (RT)
+Regression Tree dibangun melalui proses yang dikenal sebagai partisi rekursif biner, yang merupakan proses berulang yang membagi data menjadi partisi atau cabang, dan kemudian melanjutkan pemisahan setiap partisi menjadi kelompok-kelompok yang lebih kecil ketika metode bergerak naik setiap cabang. Awalnya, semua catatan dalam Set Training dikelompokkan ke dalam partisi yang sama. Algoritma kemudian mulai mengalokasikan data ke dalam dua partisi atau cabang pertama, menggunakan setiap kemungkinan pemisahan biner pada setiap bidang. Algoritma memilih pemisahan yang meminimalkan jumlah penyimpangan kuadrat dari rata-rata di dua partisi terpisah. Aturan pemisahan ini kemudian diterapkan ke masing-masing cabang baru. Proses ini berlanjut hingga setiap node mencapai ukuran simpul minimum yang ditentukan pengguna dan menjadi simpul terminal. (Jika jumlah deviasi kuadrat dari rata-rata dalam simpul adalah nol, maka simpul itu dianggap sebagai simpul terminal bahkan jika belum mencapai ukuran minimum.)
+
+3. Random Forest (RF)
+Random forest (RF) adalah suatu algoritma yang digunakan pada klasifikasi data dalam jumlah yang besar. Klasifikasi random forest dilakukan melalui penggabungan pohon (tree) dengan melakukan training pada sampel data yang dimiliki. ... Random forest menggunakan Decision Tree untuk melakukan proses seleksi.
