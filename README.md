@@ -83,7 +83,7 @@ Regression Tree dibangun melalui proses yang dikenal sebagai partisi rekursif bi
 Gini index dan information gain, keduanya adalah method yang digunakan ntuk memilih dari n attributes dari dataset, atribut mana yang akan diletakan pada rood node atau internal node.
 
 **Gini index**
-![alt text](https://cdncontribute.geeksforgeeks.org/wp-content/uploads/decisionTree3.png)
+![Screenshot](https://cdncontribute.geeksforgeeks.org/wp-content/uploads/decisionTree3.png)
 Gini Index adalah metric untuk mengukur seberapa sering elemen yang terpilih secara random akan salah diidentifikasi
 -	Artinya atribut dengan gini index yang kecil akan lebih baik
 -	Sklearn supports “gini” kriteria untuk Gini Index dan secara default, mengambil “gini” value
