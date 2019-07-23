@@ -145,3 +145,31 @@ Akurasi score digunakan untuk mengkalkulasi akurasi dari trained classifier
 
 # 3. Random Forest (RF)
 Random forest (RF) adalah suatu algoritma yang digunakan pada klasifikasi data dalam jumlah yang besar. Klasifikasi random forest dilakukan melalui penggabungan pohon (tree) dengan melakukan training pada sampel data yang dimiliki. Random forest menggunakan Decision Tree untuk melakukan proses seleksi.
+
+https://github.com/josessca/UniStudyPredict/blob/master/Random%20Forest%202.ipynb
+
+Implementation in Scikit-learn
+For each decision tree, Scikit-learn calculates a nodes importance using Gini Importance, assuming only two child nodes (binary tree):
+
+![Screenshot](https://miro.medium.com/max/770/1*C-bkgMBs4drNVyBb1VJcEQ.png)
+
+ni sub(j)= the importance of node j
+w sub(j) = weighted number of samples reaching node j
+C sub(j)= the impurity value of node j
+left(j) = child node from left split on node j
+right(j) = child node from right split on node j
+sub() is being used as subscript isn’t available in Medium
+See method compute_feature_importances in _tree.pyx
+The importance for each feature on a decision tree is then calculated as:
+![Screenshot](https://miro.medium.com/max/770/1*oar13be_cUsLR35MA_t6WQ.png) 
+fi sub(i)= the importance of feature i
+ni sub(j)= the importance of node j
+These can then be normalized to a value between 0 and 1 by dividing by the sum of all feature importance values:
+![Screenshot](https://miro.medium.com/max/770/1*uZPnQKYNmy7Tf3DvZ0e5tQ.png) 
+The final feature importance, at the Random Forest level, is it’s average over all the trees. The sum of the feature’s importance value on each trees is calculated and divided by the total number of trees:
+![Screenshot]( https://miro.medium.com/max/770/1*gK2tXtlbz12oMCdniAPPlg.png) 
+RFfi sub(i)= the importance of feature i calculated from all trees in the Random Forest model
+normfi sub(ij)= the normalized feature importance for i in tree j
+T = total number of trees
+See method feature_importances_ in forest.py
+Notation was inspired by this StackExchange thread which I found incredible useful for this post.
