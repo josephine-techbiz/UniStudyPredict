@@ -61,10 +61,12 @@ Regression Tree dibangun melalui proses yang dikenal sebagai partisi rekursif bi
 -	Mencari nodes leaf pada keseluruhan tree dengan mengulang 1 dan 2 pada setiap subset
 
 **Ketika mengimplementasi decision tree, terdapat 2 fase:**
+
 **1.	Building Phase**
    - Preprocess the dataset.
    - Split the dataset dari train dan test menggunakan Python sklearn package.
    - Train the classifier.
+   
 **2.	Operational Phase** 
    - Membuat predictions.
    - Calculate the accuracy.
