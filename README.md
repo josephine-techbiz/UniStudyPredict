@@ -25,20 +25,51 @@ Dalam proyek ini, diperlukan beberapa batasan yang digunakan sebagai acuan dalam
 10)	Hasil yang ditampilkan berupa Website dari Python Dash 
 
 # Data Cleansing
-Data cleansing atau data cleaning sering digunakan untuk berbagai kasus tentang peningkatan kualitas data. Cleansing data di proyek ini menggunakan bahasa pemrogramman R.
-- menghapus nilai "NA" atau NULL 
+Data cleansing atau data cleaning sering digunakan untuk berbagai kasus tentang peningkatan kualitas data. 
 
-       na.omit(data)
-       data<-datamhs[!(data$kdsla=="\\N"),] # berdasarkan kode sekolah
-       data<-datamhs[!(data$kdsla=="\\N"),]
-       
-- menggunakan fungsi aggregat untuk mendapatkan data dengan kategori tertentu
-   
-      data<-data!(data$nem<=30.0),] # batas nem minimum
-      data<-data[!(data$nem>60.0),] # batas nem maksium
+# Ensemble Learning
+Salah satu tugas dari machine learning,  pattern recognition dan data mining adalah untuk membangun model yang baik dari dataset. Proses menghasilkan model dari data dinamakan learning atau training, yang diselesaikan oleh learning algorithm. Model tersebut dapat disebut dengan sebuah hipotesis atau learner atau classifier. Ensemble learning adalah metode untuk memecahkan masalah yang sama dengan membangun dan mengkombinasikan suatu kumpulan classifier. Sebuah ensemble mengandung sejumlah learner yang dinamakan base learners, dihasilkan dari base learning algorithm seperti decision tree, neural network, naïve bayes classifier, dan lainnya. 
 
 # 1. Support Vector Machine (SVM)
 Konsep Klasifikasi dengan Support Vector Machine (SVM) adalah mencari hyperplane terbaik yang berfungsi sebagai pemisah dua kelas data. Ide sederhana dari SVM adalah memaksimalkan margin, yang merupakan jarak pemisah antara kelas data
+
+**Prepare Data**
+- Read data yang akan digunakan
+- Select kolom yang akan digunakan sebagai target
+- Select data yang akan digunakan sebagai dataset
+
+**Splitting**
+- Data akan dipisah menjadi training dan test
+- Jumlah test data sebanyak 25% dan training sebanyak 75%
+
+**Feature Scaling**
+- Scaling diperlukan untuk menghilangkan pengaruh feature yg memiliki range besar mendominasi feature yg memiliki range kecil yang biasa disebut dengan normalisasi
+
+**Fitting Classifier to the Training Set**
+- Melakukan import package yang diperlukan
+- Menggunakan kernel linear
+- Fitting data yang telah di train pada tahap sebelumnya
+- C: Ini adalah parameter regularisasi, C dari istilah error.
+- Kernel: Ini menentukan tipe kernel yang akan digunakan dalam algoritma. Kernel yang dipakai adalah linear
+- Degree: Ini adalah derajat fungsi kernel. Nilai standarnya adalah 3.
+- Gamma: Ini adalah koefisien kernel. Jika gamma adalah 'otomatis', maka 1/n_fitur akan digunakan sebagai gantinya.
+
+**Confusion Matrix**
+- Ringkasan hasil prediksi pada masalah klasifikasi.
+- Jumlah prediksi yang benar dan salah dirangkum dengan nilai-nilai hitung dan dipecah oleh masing-masing kelas. 
+- Menunjukkan cara-cara yang membuat confusion model klasifikasi ketika membuat prediksi.
+- Confusion Matrix memberi informasi kesalahan yang dibuat oleh classifier dan jenis kesalahan yang dibuat.
+
+**Evaluating Classification Report**
+- precision: classiifer untuk tidak memberi label instance positif yang sebenarnya negatif. untuk semua kejadian yang diklasifikasikan positif, berapa persen yang benar
+- recall
+classifier untuk menemukan semua instance positif.untuk semua contoh yang benar-benar positif, berapa persen yang diklasifikasikan dengan benar
+- f1-score
+wighted harmonic mean dari precision dan recall. skor terbaik adalah 1.0 dan terburuk adalah 0.0
+- Support
+ jumlah aktual kelas dalam dataset yang ditentukan. support  tidak berubah di antara model tetapi mendiagnosis proses evaluasi.
+
+https://github.com/josessca/UniStudyPredict/blob/master/SVM.ipynb
 
 # 2. Regression Tree (RT)
 Regression Tree dibangun melalui proses yang dikenal sebagai partisi rekursif biner, yang merupakan proses berulang yang membagi data menjadi partisi atau cabang, dan kemudian melanjutkan pemisahan setiap partisi menjadi kelompok-kelompok yang lebih kecil ketika metode bergerak naik setiap cabang. Awalnya, semua catatan dalam Set Training dikelompokkan ke dalam partisi yang sama. Algoritma kemudian mulai mengalokasikan data ke dalam dua partisi atau cabang pertama, menggunakan setiap kemungkinan pemisahan biner pada setiap bidang. Algoritma memilih pemisahan yang meminimalkan jumlah penyimpangan kuadrat dari rata-rata di dua partisi terpisah. Aturan pemisahan ini kemudian diterapkan ke masing-masing cabang baru. Proses ini berlanjut hingga setiap node mencapai ukuran simpul minimum yang ditentukan pengguna dan menjadi simpul terminal. (Jika jumlah deviasi kuadrat dari rata-rata dalam simpul adalah nol, maka simpul itu dianggap sebagai simpul terminal bahkan jika belum mencapai ukuran minimum.)
@@ -90,7 +121,6 @@ Regression Tree dibangun melalui proses yang dikenal sebagai partisi rekursif bi
 Gini index dan information gain, keduanya adalah method yang digunakan ntuk memilih dari n attributes dari dataset, atribut mana yang akan diletakan pada rood node atau internal node.
 
 **Gini index**
-![Screenshot](https://cdncontribute.geeksforgeeks.org/wp-content/uploads/decisionTree3.png)
 Gini Index adalah metric untuk mengukur seberapa sering elemen yang terpilih secara random akan salah diidentifikasi
 -	Artinya atribut dengan gini index yang kecil akan lebih baik
 -	Sklearn supports “gini” kriteria untuk Gini Index dan secara default, mengambil “gini” value
@@ -115,34 +145,3 @@ Akurasi score digunakan untuk mengkalkulasi akurasi dari trained classifier
 
 # 3. Random Forest (RF)
 Random forest (RF) adalah suatu algoritma yang digunakan pada klasifikasi data dalam jumlah yang besar. Klasifikasi random forest dilakukan melalui penggabungan pohon (tree) dengan melakukan training pada sampel data yang dimiliki. Random forest menggunakan Decision Tree untuk melakukan proses seleksi.
-
-https://github.com/josessca/UniStudyPredict/blob/master/Random%20Forest%202.ipynb
-
-Implementation in Scikit-learn
-For each decision tree, Scikit-learn calculates a nodes importance using Gini Importance, assuming only two child nodes (binary tree):
-
-![Screenshot](https://miro.medium.com/max/770/1*C-bkgMBs4drNVyBb1VJcEQ.png)
-
-ni sub(j)= the importance of node j
-w sub(j) = weighted number of samples reaching node j
-C sub(j)= the impurity value of node j
-left(j) = child node from left split on node j
-right(j) = child node from right split on node j
-sub() is being used as subscript isn’t available in Medium
-See method compute_feature_importances in _tree.pyx
-The importance for each feature on a decision tree is then calculated as:
-![Screenshot](https://miro.medium.com/max/770/1*oar13be_cUsLR35MA_t6WQ.png) 
-
-fi sub(i)= the importance of feature i
-ni sub(j)= the importance of node j
-These can then be normalized to a value between 0 and 1 by dividing by the sum of all feature importance values:
-![Screenshot](https://miro.medium.com/max/770/1*uZPnQKYNmy7Tf3DvZ0e5tQ.png) 
-
-The final feature importance, at the Random Forest level, is it’s average over all the trees. The sum of the feature’s importance value on each trees is calculated and divided by the total number of trees:
-![Screenshot]( https://miro.medium.com/max/770/1*gK2tXtlbz12oMCdniAPPlg.png) 
-
-RFfi sub(i)= the importance of feature i calculated from all trees in the Random Forest model
-normfi sub(ij)= the normalized feature importance for i in tree j
-T = total number of trees
-See method feature_importances_ in forest.py
-Notation was inspired by this StackExchange thread which I found incredible useful for this post.
