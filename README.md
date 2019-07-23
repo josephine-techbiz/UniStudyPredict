@@ -132,12 +132,15 @@ sub() is being used as subscript isn’t available in Medium
 See method compute_feature_importances in _tree.pyx
 The importance for each feature on a decision tree is then calculated as:
 ![Screenshot](https://miro.medium.com/max/770/1*oar13be_cUsLR35MA_t6WQ.png) 
+
 fi sub(i)= the importance of feature i
 ni sub(j)= the importance of node j
 These can then be normalized to a value between 0 and 1 by dividing by the sum of all feature importance values:
 ![Screenshot](https://miro.medium.com/max/770/1*uZPnQKYNmy7Tf3DvZ0e5tQ.png) 
+
 The final feature importance, at the Random Forest level, is it’s average over all the trees. The sum of the feature’s importance value on each trees is calculated and divided by the total number of trees:
 ![Screenshot]( https://miro.medium.com/max/770/1*gK2tXtlbz12oMCdniAPPlg.png) 
+
 RFfi sub(i)= the importance of feature i calculated from all trees in the Random Forest model
 normfi sub(ij)= the normalized feature importance for i in tree j
 T = total number of trees
