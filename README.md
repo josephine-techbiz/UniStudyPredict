@@ -36,5 +36,74 @@ Konsep Klasifikasi dengan Support Vector Machine (SVM) adalah mencari hyperplane
 # 2. Regression Tree (RT)
 Regression Tree dibangun melalui proses yang dikenal sebagai partisi rekursif biner, yang merupakan proses berulang yang membagi data menjadi partisi atau cabang, dan kemudian melanjutkan pemisahan setiap partisi menjadi kelompok-kelompok yang lebih kecil ketika metode bergerak naik setiap cabang. Awalnya, semua catatan dalam Set Training dikelompokkan ke dalam partisi yang sama. Algoritma kemudian mulai mengalokasikan data ke dalam dua partisi atau cabang pertama, menggunakan setiap kemungkinan pemisahan biner pada setiap bidang. Algoritma memilih pemisahan yang meminimalkan jumlah penyimpangan kuadrat dari rata-rata di dua partisi terpisah. Aturan pemisahan ini kemudian diterapkan ke masing-masing cabang baru. Proses ini berlanjut hingga setiap node mencapai ukuran simpul minimum yang ditentukan pengguna dan menjadi simpul terminal. (Jika jumlah deviasi kuadrat dari rata-rata dalam simpul adalah nol, maka simpul itu dianggap sebagai simpul terminal bahkan jika belum mencapai ukuran minimum.)
 
+Used Python Packages:
+1.	sklearn: 
+   o	Dalam python, sklearn adalah machine learning package yang mencakup banyak algoritma machine learning.
+   o	Di sini, kami menggunakan beberapa modulnya seperti train_test_split, DecisionTreeClassifier dan accuracy_score.
+   
+2.	NumPy: 
+   o	Ini adalah modul python numerik yang menyediakan fungsi matematika cepat untuk perhitungan.
+   o	Digunakan untuk membaca data dalam array numpy dan untuk tujuan manipulasi.
+   
+3.	Pandas: 
+   o	Digunakan untuk membaca dan menulis file yang berbeda.
+   o	Data manipulation dapat dilakukan dengan mudah dengan dataframes.
+   
+Asumsi yang kami buat saat menggunakan Decision Tree:
+-	Pada awalnya, kami menganggap seluruh training ditetapkan sebagai root.
+-	Atribut diasumsikan kategorikal untuk perolehan informasi dan untuk gini indeks, atribut diasumsikan continous.
+-	Atas dasar nilai-nilai atribut, catatan didistribusikan secara rekursif.
+-	Kami menggunakan metode statistik untuk memesan atribut sebagai root atau node internal.
+
+Pseudocode:
+-	Cari atribut terbaik dan letakkan pada root node pada tree
+-	Split training set pada dataset menjadi subsets. Ketika membuat subset, pastikan setiap subset dari training dataset mempunyai nilai yang sama untuk atribut
+-	Mencari nodes leaf pada keseluruhan tree dengan mengulang 1 dan 2 pada setiap subset
+
+Ketika mengimplementasi decision tree, terdapat 2 fase:
+1.	Building Phase 
+   o	Preprocess the dataset.
+   o	Split the dataset dari train dan test menggunakan Python sklearn package.
+   o	Train the classifier.
+2.	Operational Phase 
+   o	Membuat predictions.
+   o	Calculate the accuracy.
+   
+
+Data Slicing:
+-	Sebelum melakukan training model, kami melakukan split pada dataset menjadi training dan testing dataset
+-	Untuk melakukan split dataset untuk training dan testing, kami menggunakan sklearn module yaitu train_test_split
+-	Pertama-tama, kami memisahkan target variable dari atribut pada dataset
+-	Dari code di atas, terdapat atribut X dan Y, X adalah dataset, Y adalah kode jurusan
+-	Step selanjutnya adalah untuk split dataset untuk kebutuhan training dan testing
+-	Line di atas berfungsi untuk split dataset untuk training dan testing. (ratio of 70:30 diantara training dan testing maka dari itu test_size parameter value = 0.3.)
+-	Random_state variable adalah pseudo-random number generator state yang digunakan untuk random sampling
+
+Terms used in code:
+Gini index dan information gain, keduanya adalah method yang digunakan ntuk memilih dari n attributes dari dataset, atribut mana yang akan diletakan pada rood node atau internal node.
+
+Gini index
+Gini Index adalah metric untuk mengukur seberapa sering elemen yang terpilih secara random akan salah diidentifikasi
+-	Artinya atribut dengan gini index yang kecil akan lebih baik
+-	Sklearn supports “gini” kriteria untuk Gini Index dan secara default, mengambil “gini” value
+
+Entropy
+Entropy digunakan untuk mengukur ketidakpastian dari random variabel, itu mencirikan ketidakmurnian dari kumpulan contoh tidak beraturan. Semakin tinggi entropi, semakin banyak information gainnya.
+
+Information Gain
+-	Entropy biasanya berubah ketika menggunakan node pada decision tree menjadi partisi training menjadi bagian yang lebih kecil. Information gain digunakan untuk mengukur perubahan di dalam entropy
+-	Sklearn supports entropy criteria untuk information gain dan ketika ingin menggunakan information gain method di sklearn, harus digunakan secara eksplisit.
+
+Accuracy score
+Akurasi score digunakan untuk mengkalkulasi akurasi dari trained classifier
+
+Confusion Matrix
+-	Digunakan untuk memahami perilaku trained classifier di atas dataset tes atau memvalidasi dataset
+-	Ringkasan hasil prediksi pada masalah klasifikasi.
+-	Jumlah prediksi yang benar dan salah dirangkum dengan nilai-nilai hitung dan dipecah oleh setiap kelas. Ini adalah kunci dari confusion matrix.
+-	Confusion matrix menunjukkan cara-cara yang membuat confused model klasifikasi kita ketika membuat prediksi.
+-	Ini memberi kita wawasan tidak hanya tentang kesalahan yang dibuat oleh classifier tetapi lebih penting lagi jenis kesalahan yang sedang dibuat.
+
+
 # 3. Random Forest (RF)
 Random forest (RF) adalah suatu algoritma yang digunakan pada klasifikasi data dalam jumlah yang besar. Klasifikasi random forest dilakukan melalui penggabungan pohon (tree) dengan melakukan training pada sampel data yang dimiliki. Random forest menggunakan Decision Tree untuk melakukan proses seleksi.
