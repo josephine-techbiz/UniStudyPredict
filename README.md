@@ -38,16 +38,16 @@ Regression Tree dibangun melalui proses yang dikenal sebagai partisi rekursif bi
 
 **Used Python Packages:**
 1.	sklearn: 
-   o	Dalam python, sklearn adalah machine learning package yang mencakup banyak algoritma machine learning.
-   o	Di sini, kami menggunakan beberapa modulnya seperti train_test_split, DecisionTreeClassifier dan accuracy_score.
+   - Dalam python, sklearn adalah machine learning package yang mencakup banyak algoritma machine learning.
+   - Di sini, kami menggunakan beberapa modulnya seperti train_test_split, DecisionTreeClassifier dan accuracy_score.
    
 2.	NumPy: 
-   o	Ini adalah modul python numerik yang menyediakan fungsi matematika cepat untuk perhitungan.
-   o	Digunakan untuk membaca data dalam array numpy dan untuk tujuan manipulasi.
+   - Ini adalah modul python numerik yang menyediakan fungsi matematika cepat untuk perhitungan.
+   - Digunakan untuk membaca data dalam array numpy dan untuk tujuan manipulasi.
    
 3.	Pandas: 
-   o	Digunakan untuk membaca dan menulis file yang berbeda.
-   o	Data manipulation dapat dilakukan dengan mudah dengan dataframes.
+   - Digunakan untuk membaca dan menulis file yang berbeda.
+   - Data manipulation dapat dilakukan dengan mudah dengan dataframes.
    
 **Asumsi yang kami buat saat menggunakan Decision Tree:**
 -	Pada awalnya, kami menganggap seluruh training ditetapkan sebagai root.
