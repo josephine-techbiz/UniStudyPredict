@@ -25,10 +25,17 @@ Dalam proyek ini, diperlukan beberapa batasan yang digunakan sebagai acuan dalam
 10)	Hasil yang ditampilkan berupa Website dari Python Dash 
 
 # Data Cleansing
-Data cleansing atau data cleaning sering digunakan untuk berbagai kasus tentang peningkatan kualitas data. 
+Data cleansing atau data cleaning sering digunakan untuk berbagai kasus tentang peningkatan kualitas data. Cleansing data di proyek ini menggunakan bahasa pemrogramman R.
+- menghapus nilai "NA" atau NULL 
 
-# Ensemble Learning
-Salah satu tugas dari machine learning,  pattern recognition dan data mining adalah untuk membangun model yang baik dari dataset. Proses menghasilkan model dari data dinamakan learning atau training, yang diselesaikan oleh learning algorithm. Model tersebut dapat disebut dengan sebuah hipotesis atau learner atau classifier. Ensemble learning adalah metode untuk memecahkan masalah yang sama dengan membangun dan mengkombinasikan suatu kumpulan classifier. Sebuah ensemble mengandung sejumlah learner yang dinamakan base learners, dihasilkan dari base learning algorithm seperti decision tree, neural network, naïve bayes classifier, dan lainnya. 
+       na.omit(data)
+       data<-datamhs[!(data$kdsla=="\\N"),] #berdasarkan kode sekolah
+       data<-datamhs[!(data$kdsla=="\\N"),]
+       
+- menggunakan fungsi aggregat untuk mendapatkan data dengan kategori tertentu
+   
+      agg_mhs<-agg_mhs[!(agg_mhs$nem<=30.0),] #batas nem minimum
+      agg_mhs<-agg_mhs[!(agg_mhs$nem>60.0),] #batas nem maksium
 
 # 1. Support Vector Machine (SVM)
 Konsep Klasifikasi dengan Support Vector Machine (SVM) adalah mencari hyperplane terbaik yang berfungsi sebagai pemisah dua kelas data. Ide sederhana dari SVM adalah memaksimalkan margin, yang merupakan jarak pemisah antara kelas data
@@ -61,12 +68,10 @@ Regression Tree dibangun melalui proses yang dikenal sebagai partisi rekursif bi
 -	Mencari nodes leaf pada keseluruhan tree dengan mengulang 1 dan 2 pada setiap subset
 
 **Ketika mengimplementasi decision tree, terdapat 2 fase:**
-
 **1.	Building Phase**
    - Preprocess the dataset.
    - Split the dataset dari train dan test menggunakan Python sklearn package.
    - Train the classifier.
-   
 **2.	Operational Phase** 
    - Membuat predictions.
    - Calculate the accuracy.
@@ -85,24 +90,15 @@ Regression Tree dibangun melalui proses yang dikenal sebagai partisi rekursif bi
 Gini index dan information gain, keduanya adalah method yang digunakan ntuk memilih dari n attributes dari dataset, atribut mana yang akan diletakan pada rood node atau internal node.
 
 **Gini index**
-
 ![Screenshot](https://cdncontribute.geeksforgeeks.org/wp-content/uploads/decisionTree3.png)
-
 Gini Index adalah metric untuk mengukur seberapa sering elemen yang terpilih secara random akan salah diidentifikasi
 -	Artinya atribut dengan gini index yang kecil akan lebih baik
 -	Sklearn supports “gini” kriteria untuk Gini Index dan secara default, mengambil “gini” value
 
 **Entropy**
-
-
-![Screenshot](https://cdncontribute.geeksforgeeks.org/wp-content/uploads/decisionTree4.png)
-
 Entropy digunakan untuk mengukur ketidakpastian dari random variabel, itu mencirikan ketidakmurnian dari kumpulan contoh tidak beraturan. Semakin tinggi entropi, semakin banyak information gainnya.
 
 **Information Gain**
-
-![Screenshot](https://cdncontribute.geeksforgeeks.org/wp-content/uploads/decisionTree5.png)
-
 -	Entropy biasanya berubah ketika menggunakan node pada decision tree menjadi partisi training menjadi bagian yang lebih kecil. Information gain digunakan untuk mengukur perubahan di dalam entropy
 -	Sklearn supports entropy criteria untuk information gain dan ketika ingin menggunakan information gain method di sklearn, harus digunakan secara eksplisit.
 
