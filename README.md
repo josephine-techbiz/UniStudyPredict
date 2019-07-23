@@ -83,15 +83,24 @@ Regression Tree dibangun melalui proses yang dikenal sebagai partisi rekursif bi
 Gini index dan information gain, keduanya adalah method yang digunakan ntuk memilih dari n attributes dari dataset, atribut mana yang akan diletakan pada rood node atau internal node.
 
 **Gini index**
+
 ![Screenshot](https://cdncontribute.geeksforgeeks.org/wp-content/uploads/decisionTree3.png)
+
 Gini Index adalah metric untuk mengukur seberapa sering elemen yang terpilih secara random akan salah diidentifikasi
 -	Artinya atribut dengan gini index yang kecil akan lebih baik
 -	Sklearn supports “gini” kriteria untuk Gini Index dan secara default, mengambil “gini” value
 
 **Entropy**
+
+
+![Screenshot](https://cdncontribute.geeksforgeeks.org/wp-content/uploads/decisionTree4.png)
+
 Entropy digunakan untuk mengukur ketidakpastian dari random variabel, itu mencirikan ketidakmurnian dari kumpulan contoh tidak beraturan. Semakin tinggi entropi, semakin banyak information gainnya.
 
 **Information Gain**
+
+![Screenshot](https://cdncontribute.geeksforgeeks.org/wp-content/uploads/decisionTree5.png)
+
 -	Entropy biasanya berubah ketika menggunakan node pada decision tree menjadi partisi training menjadi bagian yang lebih kecil. Information gain digunakan untuk mengukur perubahan di dalam entropy
 -	Sklearn supports entropy criteria untuk information gain dan ketika ingin menggunakan information gain method di sklearn, harus digunakan secara eksplisit.
 
