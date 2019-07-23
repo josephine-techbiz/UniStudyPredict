@@ -115,5 +115,6 @@ Akurasi score digunakan untuk mengkalkulasi akurasi dari trained classifier
 
 # 3. Random Forest (RF)
 Random forest (RF) adalah suatu algoritma yang digunakan pada klasifikasi data dalam jumlah yang besar. Klasifikasi random forest dilakukan melalui penggabungan pohon (tree) dengan melakukan training pada sampel data yang dimiliki. Random forest menggunakan Decision Tree untuk melakukan proses seleksi.
-![RF](https://raw.githubusercontent.com/josessca/UniStudyPredict/master/Screenshot/Random%20Forest%202.ipynb)
+
+https://github.com/josessca/UniStudyPredict/blob/master/Random%20Forest%202.ipynb
 
