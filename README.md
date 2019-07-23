@@ -29,13 +29,13 @@ Data cleansing atau data cleaning sering digunakan untuk berbagai kasus tentang 
 - menghapus nilai "NA" atau NULL 
 
        na.omit(data)
-       data<-datamhs[!(data$kdsla=="\\N"),] #berdasarkan kode sekolah
+       data<-datamhs[!(data$kdsla=="\\N"),] # berdasarkan kode sekolah
        data<-datamhs[!(data$kdsla=="\\N"),]
        
 - menggunakan fungsi aggregat untuk mendapatkan data dengan kategori tertentu
    
-      agg_mhs<-agg_mhs[!(agg_mhs$nem<=30.0),] #batas nem minimum
-      agg_mhs<-agg_mhs[!(agg_mhs$nem>60.0),] #batas nem maksium
+      data<-data!(data$nem<=30.0),] # batas nem minimum
+      data<-data[!(data$nem>60.0),] # batas nem maksium
 
 # 1. Support Vector Machine (SVM)
 Konsep Klasifikasi dengan Support Vector Machine (SVM) adalah mencari hyperplane terbaik yang berfungsi sebagai pemisah dua kelas data. Ide sederhana dari SVM adalah memaksimalkan margin, yang merupakan jarak pemisah antara kelas data
@@ -115,3 +115,5 @@ Akurasi score digunakan untuk mengkalkulasi akurasi dari trained classifier
 
 # 3. Random Forest (RF)
 Random forest (RF) adalah suatu algoritma yang digunakan pada klasifikasi data dalam jumlah yang besar. Klasifikasi random forest dilakukan melalui penggabungan pohon (tree) dengan melakukan training pada sampel data yang dimiliki. Random forest menggunakan Decision Tree untuk melakukan proses seleksi.
+![RF](https://raw.githubusercontent.com/josessca/UniStudyPredict/master/Screenshot/Random%20Forest%202.ipynb)
+
