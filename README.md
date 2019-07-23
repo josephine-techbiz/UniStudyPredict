@@ -68,6 +68,13 @@ classifier untuk menemukan semua instance positif.untuk semua contoh yang benar-
 wighted harmonic mean dari precision dan recall. skor terbaik adalah 1.0 dan terburuk adalah 0.0
 - Support
  jumlah aktual kelas dalam dataset yang ditentukan. support  tidak berubah di antara model tetapi mendiagnosis proses evaluasi.
+- Klasifikasi merupakan problem untuk mengkategorikan suatu entitas ke kelompok tertentu.
+ Lebih spesifiknya, algoritma machine learning mencari fungsi ![screenshoot](https://s0.wp.com/latex.php?latex=f%3A+%5Cmathcal%7BX%7D+%5Crightarrow+%5C%7B-1%2C+%2B1%5C%7D&bg=fffdfd&fg=606666&s=1) yang meminimumkan empirical risk:
+ 
+ ![screenshoot](https://s0.wp.com/latex.php?latex=%5Cdisplaystyle+f%5E%2A%3A%3D+%5Cmin_%7Bf%7D+%5Cfrac%7B1%7D%7Bn%7D+%5Csum_%7Bi%3D1%7D%5E%7Bn%7D+L%28f%28x_i%29%2C+y_i%29&bg=fffdfd&fg=606666&s=2)
+ 
+ dimana ![screenshoot](https://s0.wp.com/latex.php?latex=L%28a%2Cb%29+%3D+%5Cmathbf%7B1%7D_%7Ba+%5Cneq+b%7D&bg=fffdfd&fg=606666&s=1) merupakan loss function.
+ 
 
 https://github.com/josessca/UniStudyPredict/blob/master/SVM.ipynb
 
